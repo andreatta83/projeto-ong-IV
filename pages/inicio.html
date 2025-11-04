@@ -1,0 +1,56 @@
+<!--
+  esse é oq eu tinha colcado no <main> do index.html.
+  Será carregado dinamicamente.
+-->
+<div class="container">
+    <!-- Seção Hero -->
+    <section class="hero-section text-center" style="background-color: var(--color-neutral-lightest); padding: var(--space-5); border-radius: var(--border-radius); box-shadow: var(--box-shadow); margin-bottom: var(--space-5);">
+        <img 
+            src="https://placehold.co/1200x400/005A9C/ffffff?text=Nossa+Missão" 
+            alt="Imagem de um grupo de voluntários felizes trabalhando juntos."
+            style="width: 100%; height: auto; border-radius: var(--border-radius); margin-bottom: var(--space-4); object-fit: cover;"
+            onerror="this.src='https://placehold.co/1200x400/005A9C/ffffff?text=Erro+ao+carregar+imagem'"
+        >
+        <h2 style="color: var(--color-primary-dark); font-size: var(--font-size-xxl); font-weight: 700; margin-bottom: var(--space-3);">Transformando Vidas, Um Gesto de Cada Vez</h2>
+        <p style="font-size: var(--font-size-md); color: var(--color-neutral-dark); margin-bottom: var(--space-4);">
+            Junte-se a nós na missão de levar esperança e apoio às comunidades que mais precisam.
+        </p>
+        <a href="/projetos" class="btn btn-secondary" style="font-size: var(--font-size-md);" data-route>
+            Conheça Nossos Projetos
+        </a>
+    </section>
+
+    <!-- Layout com Grid de 12 Colunas -->
+    <div class="row">
+        <!-- Seção Sobre Nós (8 colunas em MD) -->
+        <section id="sobre" class="col-md-8" style="background-color: var(--color-neutral-lightest); padding: var(--space-4); border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+            <h2 style="border-bottom: 2px solid var(--color-neutral-medium); padding-bottom: var(--space-2);">Sobre Nossa Organização</h2>
+            <p style="font-size: var(--font-size-md); line-height: 1.7;">
+                A "Conexão Solidária" é uma organização não governamental dedicada a criar um impacto positivo e duradouro. Nascemos da crença de que pequenas ações, quando somadas, podem gerar grandes transformações.
+            </p>
+            <p style="font-size: var(--font-size-base); line-height: 1.7;">
+                Nossos pilares são a transparência, o comprometimento e a empatia. Atuamos em diversas frentes, desde a segurança alimentar até o apoio educacional, buscando sempre atender às necessidades mais urgentes de nossa comunidade.
+            </p>
+        </section>
+
+        <!-- Seção de Contato (4 colunas em MD) -->
+        <aside id="contato" class="col-md-4" style="background-color: var(--color-neutral-darkest); color: var(--color-neutral-lightest); padding: var(--space-4); border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+            <h2 style="color: var(--color-neutral-lightest); border-bottom: 2px solid var(--color-neutral-dark); padding-bottom: var(--space-2);">Informações de Contato</h2>
+            <address style="font-style: normal; font-size: var(--font-size-base); line-height: 1.8;">
+                <p>
+                    <strong>E-mail:</strong><br> 
+                    <a href="mailto:contato@conexaosolidaria.org" style="color: var(--color-secondary);">contato@conexaosolidaria.org</a>
+                </p>
+                <p>
+                    <strong>Telefone:</strong><br> 
+                    <a href="tel:+5511999998888" style="color: var(--color-secondary);">(11) 99999-8888</a>
+                </p>
+                <p>
+                    <strong>Endereço:</strong><br>
+                    Rua da Esperança, 123 - Centro<br>
+                    São Paulo, SP - CEP 01000-000
+                </p>
+            </address>
+        </aside>
+    </div>
+</div>

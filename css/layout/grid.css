@@ -1,0 +1,84 @@
+/*
+ * ===============================================
+ * CSS/LAYOUT/GRID.CSS
+ * ===============================================
+ *
+ * 1. Container principal
+ * 2. Layout principal (CSS Grid)
+ * 3. Sistema de Grid customizado (12 colunas)
+ *
+ */
+
+/* 1. Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-2);
+  padding-right: var(--space-2);
+}
+
+/* 2. Layout Principal (CSS Grid) */
+/* Define a estrutura geral da página */
+.site-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Cabeçalho, Conteúdo, Rodapé */
+  min-height: 100vh;
+}
+
+.site-header {
+  grid-row: 1 / 2;
+}
+
+.site-main {
+  grid-row: 2 / 3;
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-5);
+}
+
+.site-footer {
+  grid-row: 3 / 4;
+}
+
+
+/* 3. Sistema de Grid de 12 Colunas (Flexbox) */
+/*
+ * Este é um grid flexbox responsivo.
+ * O CSS Grid é usado para o layout geral (acima).
+ * O Flexbox é ótimo para o grid de 12 colunas interno.
+ */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  /* Espaçamento negativo para compensar o padding das colunas */
+  margin-left: calc(var(--space-3) / -2);
+  margin-right: calc(var(--space-3) / -2);
+}
+
+/*
+ * Define o padding padrão das colunas (gutter)
+ * e o 'flex-basis' padrão (100% - mobile-first)
+ */
+[class^="col-"] {
+  width: 100%;
+  padding-left: calc(var(--space-3) / 2);
+  padding-right: calc(var(--space-3) / 2);
+  margin-bottom: var(--space-3); /* Espaçamento vertical entre colunas */
+}
+
+/* Gera classes de 1 a 12 colunas (para desktop) */
+/* Ex: .col-1 = 8.333%, .col-6 = 50%, .col-12 = 100% */
+.col-1  { flex-basis: calc(100% / 12 * 1); max-width: calc(100% / 12 * 1); }
+.col-2  { flex-basis: calc(100% / 12 * 2); max-width: calc(100% / 12 * 2); }
+.col-3  { flex-basis: calc(100% / 12 * 3); max-width: calc(100% / 12 * 3); }
+.col-4  { flex-basis: calc(100% / 12 * 4); max-width: calc(100% / 12 * 4); }
+.col-5  { flex-basis: calc(100% / 12 * 5); max-width: calc(100% / 12 * 5); }
+.col-6  { flex-basis: calc(100% / 12 * 6); max-width: calc(100% / 12 * 6); }
+.col-7  { flex-basis: calc(100% / 12 * 7); max-width: calc(100% / 12 * 7); }
+.col-8  { flex-basis: calc(100% / 12 * 8); max-width: calc(100% / 12 * 8); }
+.col-9  { flex-basis: calc(100% / 12 * 9); max-width: calc(100% / 12 * 9); }
+.col-10 { flex-basis: calc(100% / 12 * 10); max-width: calc(100% / 12 * 10); }
+.col-11 { flex-basis: calc(100% / 12 * 11); max-width: calc(100% / 12 * 11); }
+.col-12 { flex-basis: 100%; max-width: 100%; }

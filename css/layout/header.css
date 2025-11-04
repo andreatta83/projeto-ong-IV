@@ -1,0 +1,179 @@
+/*
+ * ===============================================
+ * CSS/LAYOUT/HEADER.CSS
+ * ===============================================
+ *
+ * 1. Estilos do <header>
+ * 2. Navegação Desktop (Flexbox)
+ * 3. Submenu Dropdown
+ * 4. Menu Hambúrguer (Mobile)
+ *
+ */
+
+.site-header {
+  background-color: var(--color-neutral-lightest);
+  box-shadow: var(--box-shadow);
+  padding: var(--space-2) 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 1. Logo */
+.nav-logo a {
+  font-size: 1.5rem; /* 24px */
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* 2. Navegação Desktop */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.nav-item {
+  position: relative; /* Necessário para o dropdown */
+}
+
+.nav-link {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-dark);
+  padding: var(--space-1) 0;
+  text-decoration: none;
+  transition: color var(--transition-speed);
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* 3. Submenu Dropdown */
+.dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem; /* 4px */
+}
+
+/* Seta do dropdown (simples) */
+.dropdown-toggle::after {
+  content: '▼';
+  font-size: 0.6rem;
+  display: inline-block;
+  transition: transform var(--transition-speed);
+}
+
+.dropdown-menu {
+  display: none; /* Oculto por padrão */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-neutral-lightest);
+  box-shadow: var(--box-shadow-hover);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  min-width: 200px;
+  z-index: 1001;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--transition-speed), transform var(--transition-speed);
+}
+
+.dropdown-item {
+  display: block;
+}
+
+.dropdown-item a {
+  display: block;
+  padding: var(--space-1) var(--space-2);
+  color: var(--color-neutral-dark);
+  text-decoration: none;
+  font-weight: var(--font-weight-regular);
+}
+
+.dropdown-item a:hover {
+  background-color: var(--color-neutral-light);
+  color: var(--color-primary);
+}
+
+/* Mostra o dropdown no hover (ou foco) do item pai */
+.nav-item:hover .dropdown-menu,
+.nav-item:focus-within .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-item:hover .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+/* 4. Menu Hambúrguer (Mobile) */
+.nav-toggle {
+  display: none; /* Oculto em desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-1);
+}
+
+.hamburger-icon {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-primary);
+  position: relative;
+  transition: background-color 0s 0.1s;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-primary);
+  position: absolute;
+  left: 0;
+  transition: transform var(--transition-speed), top var(--transition-speed) 0.1s;
+}
+
+.hamburger-icon::before {
+  top: -8px;
+}
+
+.hamburger-icon::after {
+  top: 8px;
+}
+
+/* Animação do "X" quando ativo */
+.nav-toggle.active .hamburger-icon {
+  background-color: transparent; /* Some o miolo */
+}
+
+.nav-toggle.active .hamburger-icon::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav-toggle.active .hamburger-icon::after {
+  top: 0;
+  transform: rotate(-45deg);
+}

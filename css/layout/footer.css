@@ -1,0 +1,17 @@
+/*
+ * ===============================================
+ * CSS/LAYOUT/FOOTER.CSS
+ * ===============================================
+ */
+
+.site-footer {
+  background-color: var(--color-neutral-darkest);
+  color: var(--color-neutral-medium);
+  padding: var(--space-4) 0;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+}

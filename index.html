@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONG Conexão Solidária</title>
+    
+    <!-- CSS (O mesmo da Entrega II) -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- JS Modular (Entry Point) -->
+    <!-- Note o 'type="module"' -->
+    <script src="js/main.js" type="module" defer></script>
+</head>
+<body class="site-wrapper">
+
+    <!-- Cabeçalho (Fica em todas as páginas) -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <h1 class="nav-logo">
+                <!-- Links agora são 'data-route' para o roteador JS -->
+                <a href="/" data-route>ONG Conexão Solidária</a>
+            </h1>
+
+            <!-- Botão Hambúrguer (Mobile) -->
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+                <span class="hamburger-icon"></span>
+            </button>
+
+            <!-- Menu (Desktop e Mobile) -->
+            <nav class="nav-menu">
+                <ul class="nav-list" id="nav-list">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link" data-route>Início</a>
+                    </li>
+                    <!-- O dropdown agora aponta para âncoras na página inicial -->
+                    <li class="nav-item">
+                        <span class="nav-link dropdown-toggle">Sobre</span>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="/#sobre" data-route>Nossa Organização</a></li>
+                            <li class="dropdown-item"><a href="/#contato" data-route>Contato</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/projetos" class="nav-link" data-route>Projetos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/cadastro" class="nav-link" data-route>Cadastro</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--
+      CONTEÚDO PRINCIPAL (SPA)
+      Este <main> é o container onde o roteador
+      vai injetar o conteúdo das páginas.
+    -->
+    <main class="site-main" id="app-root">
+        <!-- O conteúdo será carregado aqui pelo JS -->
+    </main>
+
+    <!-- Rodapé (Fica em todas as páginas) -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 ONG Conexão Solidária. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- 
+      Modal de Confirmação
+      (Movido para o index.html para estar disponível globalmente)
+    -->
+    <div class="modal-overlay" id="confirmation-modal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h3 class="modal-title">Cadastro Recebido!</h3>
+                <button class="modal-close" id="modal-close" aria-label="Fechar modal">&times;</button>
+            </header>
+            <div class="modal-body">
+                <p style="font-size: var(--font-size-md);">
+                    Obrigado por se cadastrar! Sua solicitação de voluntariado foi recebida com sucesso.
+                </p>
+                <p>
+                    Entraremos em contato em breve pelo e-mail fornecido.
+                </p>
+            </div>
+            <footer class="modal-footer">
+                <button class="btn btn-primary modal-close-btn">
+                    Fechar
+                </button>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>

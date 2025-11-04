@@ -1,0 +1,28 @@
+/*
+ * ===============================================
+ * CSS/MAIN.CSS
+ * ===============================================
+ *
+ * Ponto de entrada principal do CSS.
+ * Importa todos os módulos na ordem correta.
+ *
+ */
+
+/* 1. Base (Variáveis, Reset, Fontes) */
+@import url('base/variables.css');
+@import url('base/base.css');
+
+/* 2. Layout (Grid, Header, Footer) */
+@import url('layout/grid.css');
+@import url('layout/header.css');
+@import url('layout/footer.css');
+
+/* 3. Componentes (Botões, Cards, Forms, Feedback) */
+@import url('components/buttons.css');
+@import url('components/cards.css');
+@import url('components/forms.css');
+@import url('components/feedback.css');
+
+/* 4. Utilitários (Responsividade) */
+/* (Deve vir por último para sobrescrever) */
+@import url('utils/responsive.css');

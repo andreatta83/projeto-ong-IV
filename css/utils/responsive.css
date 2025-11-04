@@ -1,0 +1,217 @@
+/*
+ * ===============================================
+ * CSS/UTILS/RESPONSIVE.CSS
+ * ===============================================
+ *
+ * Define os 5+ breakpoints responsivos,
+ * tratando do menu mobile e do grid.
+ *
+ * Breakpoints (Mobile-First):
+ * 1. sm: 480px  (Smartphones maiores)
+ * 2. md: 768px  (Tablets)
+ * 3. lg: 1024px (Laptops)
+ * 4. xl: 1200px (Desktops)
+ * 5. xxl: 1440px (Desktops maiores)
+ *
+ */
+
+/* 1. sm (480px) e acima */
+@media (min-width: 480px) {
+  /* (Ajustes menores, se necessário) */
+  /* Ex: Aumentar fonte base */
+  h1 { font-size: 2.75rem; }
+  h2 { font-size: 2.25rem; }
+}
+
+/* 2. md (768px) e acima (Tablets) */
+@media (min-width: 768px) {
+
+  /* --- Grid (md) --- */
+  /* Gera classes .col-md-* */
+  .col-md-1  { flex-basis: calc(100% / 12 * 1); max-width: calc(100% / 12 * 1); }
+  .col-md-2  { flex-basis: calc(100% / 12 * 2); max-width: calc(100% / 12 * 2); }
+  .col-md-3  { flex-basis: calc(100% / 12 * 3); max-width: calc(100% / 12 * 3); }
+  .col-md-4  { flex-basis: calc(100% / 12 * 4); max-width: calc(100% / 12 * 4); }
+  .col-md-5  { flex-basis: calc(100% / 12 * 5); max-width: calc(100% / 12 * 5); }
+  .col-md-6  { flex-basis: calc(100% / 12 * 6); max-width: calc(100% / 12 * 6); }
+  .col-md-7  { flex-basis: calc(100% / 12 * 7); max-width: calc(100% / 12 * 7); }
+  .col-md-8  { flex-basis: calc(100% / 12 * 8); max-width: calc(100% / 12 * 8); }
+  .col-md-9  { flex-basis: calc(100% / 12 * 9); max-width: calc(100% / 12 * 9); }
+  .col-md-10 { flex-basis: calc(100% / 12 * 10); max-width: calc(100% / 12 * 10); }
+  .col-md-11 { flex-basis: calc(100% / 12 * 11); max-width: calc(100% / 12 * 11); }
+  .col-md-12 { flex-basis: 100%; max-width: 100%; }
+
+  /* --- Navegação (md) --- */
+  /* Esconde o botão hambúrguer */
+  .nav-toggle {
+    display: none;
+  }
+
+  /* Mostra o menu desktop */
+  .nav-menu {
+    display: flex;
+  }
+
+  /* Oculta o menu mobile (caso estivesse aberto) */
+  .nav-list {
+    position: static;
+    flex-direction: row;
+    height: auto;
+    width: auto;
+    transform: translateX(0);
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    gap: var(--space-3);
+  }
+
+  .nav-item {
+    display: block; /* Garante que os dropdowns funcionem */
+  }
+
+  .nav-link {
+    color: var(--color-neutral-dark);
+  }
+}
+
+/* Abaixo de 768px (Mobile) */
+@media (max-width: 767.98px) {
+
+  /* --- Navegação (Mobile) --- */
+  /* Mostra o botão hambúrguer */
+  .nav-toggle {
+    display: block;
+  }
+
+  /* Esconde o menu desktop */
+  .nav-menu {
+    display: block;
+  }
+  
+  /* Estiliza o menu mobile */
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+
+    /* Posição (tela cheia) */
+    position: fixed;
+    top: 69px; /* Altura do header (aprox) */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 69px);
+
+    /* Aparência */
+    background-color: var(--color-neutral-lightest);
+    box-shadow: var(--box-shadow-hover);
+    padding: var(--space-4) 0;
+
+    /* Animação (Oculto por padrão) */
+    transform: translateX(100%);
+    transition: transform var(--transition-speed);
+  }
+
+  /* Estado ativo (menu aberto) */
+  .nav-list.active {
+    transform: translateX(0);
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link {
+    font-size: var(--font-size-md); /* 18px */
+    display: block;
+    width: 100%;
+    padding: var(--space-1) var(--space-3);
+    border-bottom: none;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-primary);
+    background-color: var(--color-neutral-light);
+    border-bottom: none;
+  }
+
+  /* Dropdown em mobile */
+  .dropdown-menu {
+    position: static;
+    display: block; /* Sempre visível no mobile quando o pai está ativo */
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    opacity: 1;
+    transform: none;
+    min-width: auto;
+    text-align: center;
+    border-top: 1px solid var(--color-neutral-medium);
+    margin-top: var(--space-2);
+  }
+
+  .dropdown-item a {
+    color: var(--color-neutral-dark);
+    font-weight: var(--font-weight-regular);
+  }
+
+  .dropdown-item a:hover {
+    background-color: var(--color-neutral-light);
+  }
+
+  /* Oculta o dropdown se não for o item "Sobre" (mobile) */
+  /* (JS seria melhor, mas tentamos com CSS) */
+  .nav-item:not(:hover) .dropdown-menu {
+     /* (Manter visível, mas estilizado para mobile) */
+  }
+
+  /* Remove a seta no mobile */
+  .dropdown-toggle::after {
+    display: none;
+  }
+}
+
+
+/* 3. lg (1024px) e acima (Laptops) */
+@media (min-width: 1024px) {
+  /* --- Grid (lg) --- */
+  .col-lg-1  { flex-basis: calc(100% / 12 * 1); max-width: calc(100% / 12 * 1); }
+  .col-lg-2  { flex-basis: calc(100% / 12 * 2); max-width: calc(100% / 12 * 2); }
+  .col-lg-3  { flex-basis: calc(100% / 12 * 3); max-width: calc(100% / 12 * 3); }
+  .col-lg-4  { flex-basis: calc(100% / 12 * 4); max-width: calc(100% / 12 * 4); }
+  .col-lg-5  { flex-basis: calc(100% / 12 * 5); max-width: calc(100% / 12 * 5); }
+  .col-lg-6  { flex-basis: calc(100% / 12 * 6); max-width: calc(100% / 12 * 6); }
+  .col-lg-7  { flex-basis: calc(100% / 12 * 7); max-width: calc(100% / 12 * 7); }
+  .col-lg-8  { flex-basis: calc(100% / 12 * 8); max-width: calc(100% / 12 * 8); }
+  .col-lg-9  { flex-basis: calc(100% / 12 * 9); max-width: calc(100% / 12 * 9); }
+  .col-lg-10 { flex-basis: calc(100% / 12 * 10); max-width: calc(100% / 12 * 10); }
+  .col-lg-11 { flex-basis: calc(100% / 12 * 11); max-width: calc(100% / 12 * 11); }
+  .col-lg-12 { flex-basis: 100%; max-width: 100%; }
+
+  /* Ajustes de fonte */
+  h1 { font-size: var(--font-size-xxl); }
+  h2 { font-size: var(--font-size-xl); }
+}
+
+/* 4. xl (1200px) e acima (Desktops) */
+@media (min-width: 1200px) {
+  /* (Ajustes finos, se necessário) */
+  .container {
+    padding-left: var(--space-1);
+    padding-right: var(--space-1);
+  }
+}
+
+/* 5. xxl (1440px) e acima (Desktops Maiores) */
+@media (min-width: 1440px) {
+  /* (Aumentar container, fontes, etc.) */
+  .container {
+    max-width: 1320px;
+  }
+
+  html {
+    font-size: 17px; /* Aumenta a base da fonte ligeiramente */
+  }
+}

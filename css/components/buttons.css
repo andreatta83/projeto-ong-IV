@@ -1,0 +1,97 @@
+/*
+ * ===============================================
+ * CSS/COMPONENTS/BUTTONS.CSS
+ * ===============================================
+ *
+ * Define o sistema de botões, incluindo
+ * estados: hover, focus, active, disabled.
+ *
+ */
+
+.btn {
+  /* Reset */
+  border: none;
+  cursor: pointer;
+  
+  /* Padrão */
+  display: inline-block;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none; /* Previne seleção de texto */
+  
+  /* Espaçamento e Borda */
+  padding: 0.75rem var(--space-3); /* 12px 24px */
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed);
+}
+
+/* 1. Botão Primário (Ação principal) */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-neutral-lightest);
+  border: 2px solid var(--color-primary);
+}
+
+/* Estados do Primário */
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-neutral-lightest);
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow);
+  text-decoration: none;
+}
+
+.btn-primary:focus,
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  background-color: var(--color-primary-dark);
+}
+
+/* 2. Botão Secundário (Destaque) */
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-neutral-darkest);
+  border: 2px solid var(--color-secondary);
+}
+
+/* Estados do Secundário */
+.btn-secondary:hover {
+  background-color: var(--color-secondary-dark);
+  border-color: var(--color-secondary-dark);
+  color: var(--color-neutral-darkest);
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow);
+  text-decoration: none;
+}
+
+.btn-secondary:focus,
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--color-secondary-dark);
+  outline-offset: 2px;
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  background-color: var(--color-secondary-dark);
+}
+
+/* 3. Botão Desabilitado */
+.btn:disabled,
+.btn.btn-disabled {
+  background-color: var(--color-neutral-medium);
+  border-color: var(--color-neutral-medium);
+  color: var(--color-neutral-dark);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
